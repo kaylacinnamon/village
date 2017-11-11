@@ -23,5 +23,6 @@ function insertProfileInfo(name, picture) {
 }
 
 function submitHost() {
+	
 	console.log('hi');
 }
