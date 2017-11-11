@@ -36,9 +36,12 @@ router.get('/', function(req, res) {
 
 app.use('/', router);
 
+
+
 app.use(express.static(__dirname + '/scripts'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/views'));
+
 
 // app.use('*', function(req, res) {
 // 	res.sendFile(path + '404.html');
