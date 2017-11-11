@@ -36,14 +36,13 @@ router.get('/', function(req, res) {
 
 app.use('/', router);
 
-<<<<<<< HEAD
+
 app.use(express.static(__dirname + '/scripts'));
-=======
 app.use(express.static(__dirname + '/images'));
 app.use(express.static(__dirname + '/public'));
 
 
->>>>>>> origin/master
+
 
 // app.use('*', function(req, res) {
 // 	res.sendFile(path + '404.html');
