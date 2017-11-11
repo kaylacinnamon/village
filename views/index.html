@@ -1,9 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<!-- Main Map -->
-<div id="map">
-</div>
-<script>
+<!-- <script>
 var map, infoWindow;
 
 function initMap() {
@@ -43,11 +40,20 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMWAB22eiYXNKhe26nM0rPeV2DOMJ2Xy0&callback=initMap">
-</script>
+</script> -->
 
 
 <!-- Homepage signup buttons -->
-<div class="container-fluid" id="button-bar">
-    <button type="button" class="btn btn-primary btn-lg" id="host" onclick="location.href = 'host.html';">I am a host.</button>
-    <button type="button" class="btn btn-secondary btn-lg" id="need">I am in need. </button>
+<div class="container-fluid">
+    <!-- Main Map -->
+    <div class="row">
+        <div class="col-12" id="map"></div>
+    </div>
+    <!-- Bottom buttons -->
+    <div class="row">
+        <button type="button" class="btn btn-primary  col-sm-6" id="host" onclick="location.href = 'host.html';">I am a host.</button>
+        
+
+        <button type="button" class="btn btn-secondary  col-sm-6" id="need">I am in need. </button>
+    </div>
 </div>
