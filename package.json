@@ -5,6 +5,9 @@
   "dependencies": {
     "express": "latest"
   },
+  "scripts": {
+    "start": "node Server.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/kaylacinnamon/village"
