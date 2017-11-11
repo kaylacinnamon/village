@@ -1,0 +1,13 @@
+{
+  "name": "village",
+  "version": "1.0.0",
+  "description": "An Airbnb for people in need during natural disasters.",
+  "dependencies": {
+    "express": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaylacinnamon/village"
+  },
+  "author": "Kayla Cinnamon, Candice Poon"
+}
