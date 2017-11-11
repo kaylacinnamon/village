@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "An Airbnb for people in need during natural disasters.",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "express": "latest"
   },
   "scripts": {
