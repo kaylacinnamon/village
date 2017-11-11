@@ -5,7 +5,8 @@ function onSignIn(googleUser) {
 	console.log('Image URL: ' + profile.getImageUrl());
 	console.log('Email: ' + profile.getEmail());
 
-	
+	location.href = 'profile.html';
+
 }
 
 function signOut() {
