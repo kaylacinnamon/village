@@ -58,6 +58,11 @@ app.post('/host', function(req, res) {
 	var obj = {};
 	console.log('body: ' + JSON.stringify(req.body));
 	res.send(req.body);
+	fs.writeFile('data/users.json', JSON.stringify(req.body), function(err) {
+		if (err) {
+			return console.log(err);
+		}
+	});
 });
 
 app.listen(3000, function() {

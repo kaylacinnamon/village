@@ -23,9 +23,9 @@ function insertProfileInfo(name, picture) {
 }
 
 function submitHost() {
-
 	var host =  new Object();
 	host.type = "host";
+	host.id = gapi.auth2.getAuthInstance().currentUser.Ab.El;
 	host.name = document.getElementById('name').innerHTML,
 	host.address = document.getElementById('address').value;
 	host.city = document.getElementById('city').value;
@@ -64,8 +64,6 @@ function submitHost() {
 			data: JSON.stringify(host),
 			contentType: 'application/json',
 			success: function(data) {
-				// alert('success');
-				// alert(data);
 			}
 	});
 }
