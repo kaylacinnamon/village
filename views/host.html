@@ -2,11 +2,18 @@
 <html lang="en">
 	<head>
 		<meta name="google-signin-client_id" content="426195066276-70erj6u039a42qq9lq3ec087jtiagve2.apps.googleusercontent.com">
+		
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<script src="host.js"></script>
 	</head>
 	<body>
 		<div class="g-signin2" data-onsuccess="onSignIn"></div>
 		<a href="#" onclick="signOut();">Sign out</a>
+		<div id="profileImage"></div>
+		<h1 id="name"></h1>
 	</body>
 </html>

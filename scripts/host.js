@@ -5,8 +5,7 @@ function onSignIn(googleUser) {
 	console.log('Image URL: ' + profile.getImageUrl());
 	console.log('Email: ' + profile.getEmail());
 
-	location.href = 'profile.html';
-
+	insertProfileInfo(profile.getName(), profile.getImageUrl());
 }
 
 function signOut() {
@@ -15,4 +14,10 @@ function signOut() {
 	auth2.signOut().then(function() {
 		console.log('User signed out.');
 	});
+}
+
+function insertProfileInfo(name, picture) {
+	document.getElementById('profileImage').innerHTML = 
+		'<img src="' + picture + '" class="img-circle" alt="' + name + '">'
+	document.getElementById('name').innerHTML = name;
 }
