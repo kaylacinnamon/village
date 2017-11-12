@@ -111,6 +111,7 @@ app.put('/update-host', function(req, res) {
 				jsonObj.zip = req.body.zip;
 				jsonObj.phone = req.body.phone;
 				jsonObj.squareCash = req.body.squareCash;
+				jsonObj.rating = req.body.rating;
 				jsonObj.services = req.body.services;
 				json[i] = JSON.stringify(jsonObj);
 				fs.writeFile('data/users.json', JSON.stringify(json), function(err) {
@@ -139,6 +140,64 @@ app.put('/update-client', function(req, res) {
 			if (req.body.id == jsonObj.id && req.body.type == 'client') {
 				jsonObj.phone = req.body.phone;
 				jsonObj.services = req.body.services;
+				json[i] = JSON.stringify(jsonObj);
+				fs.writeFile('data/users.json', JSON.stringify(json), function(err) {
+					if (err) {
+						return console.log(err);
+					}
+				});
+				break;
+			}
+		}
+	}	
+});
+
+app.put('/update-TU-rating', function(req, res) {
+	var obj = {};
+	res.send(req.body);
+	var json;
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+		json = data;
+		console.log(json);
+		updateTURating();
+	});
+	function updateTURating() {
+		json = JSON.parse(json);
+		for (var i = 0; i < json.length; ++i) {
+			var jsonObj = JSON.parse(json[i]);
+			console.log(req.body.id + '\n');
+			console.log(jsonObj.id);
+			if (req.body.id == jsonObj.id && req.body.type == 'host') {
+				jsonObj.rating = req.body.rating;
+				json[i] = JSON.stringify(jsonObj);
+				fs.writeFile('data/users.json', JSON.stringify(json), function(err) {
+					if (err) {
+						return console.log(err);
+					}
+				});
+				break;
+			}
+		}
+	}	
+});
+
+app.put('/update-TD-rating', function(req, res) {
+	var obj = {};
+	res.send(req.body);
+	var json;
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+		json = data;
+		console.log(json);
+		updateTDRating();
+	});
+	function updateTDRating() {
+		json = JSON.parse(json);
+		for (var i = 0; i < json.length; ++i) {
+			var jsonObj = JSON.parse(json[i]);
+			console.log(req.body.id + '\n');
+			console.log(jsonObj.id);
+			if (req.body.id == jsonObj.id && req.body.type == 'host') {
+				jsonObj.rating = req.body.rating;
 				json[i] = JSON.stringify(jsonObj);
 				fs.writeFile('data/users.json', JSON.stringify(json), function(err) {
 					if (err) {
@@ -182,6 +241,18 @@ app.post('/edit-host', function(req, res) {
 });
 
 app.post('/edit-client', function(req, res) {
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+		res.send(data);
+	});
+});
+
+app.post('/thumbs-up-host', function(req, res) {
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+		res.send(data);
+	});
+});
+
+app.post('/thumbs-down-host', function(req, res) {
 	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
 		res.send(data);
 	});

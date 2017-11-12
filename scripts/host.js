@@ -8,6 +8,7 @@ window.onload = function() {
 		console.log('signed out');
 		document.getElementById('signIn').style.display = "block";
 		document.getElementById('signOut').style.display = "none";
+		document.getElementById('rating').style.display = "none";
 		document.getElementById('profileImage').style.display = "none";
 		document.getElementById('name').style.display = "none";
 		document.getElementById('email').style.display = "none";
@@ -29,6 +30,7 @@ function onSignIn(googleUser) {
 	insertProfileInfo(profile.getGivenName(), profile.getImageUrl(), profile.getEmail());
 	document.getElementById('signIn').style.display = "none";
 	document.getElementById('signOut').style.display = "block";
+	document.getElementById('rating').style.display = "block";
 	document.getElementById('profileImage').style.display = "block";
 	document.getElementById('name').style.display = "block";
 	document.getElementById('email').style.display = "block";
@@ -47,6 +49,7 @@ function signOut() {
 	});
 	document.getElementById('signIn').style.display = "block";
 	document.getElementById('signOut').style.display = "none";
+	document.getElementById('rating').style.display = "none";
 	document.getElementById('profileImage').style.display = "none";
 	document.getElementById('name').style.display = "none";
 	document.getElementById('email').style.display = "none";
