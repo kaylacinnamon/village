@@ -14,7 +14,8 @@ function populateList(data) {
 	for (var i = 0; i < myArray.length; ++i) {
 		var obj = JSON.parse(myArray[i]);
 		if (obj.type == "host") {
-			if (typeof obj.squareCash != 'undefined') {
+			console.log(obj.squareCash);
+			if (typeof obj.squareCash != 'undefined' &&  obj.squareCash != '') {
 				var servicesString = '';
 				for (var j = 0; j < obj.services.length - 1; ++j) {
 					servicesString += obj.services[j] + ', ';
