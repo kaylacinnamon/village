@@ -1,11 +1,19 @@
 
-// Homepage
-// #map {
-//     height: 200px;
-//     background-color: white;
-// }
+Homepage
+#map {
+    height: 200px;
+    background-color: white;
+}
 
 $purple: #9763C8;
+
+//typography
+
+body {
+	p {
+		font-size: 22px;
+	}
+}
 
 //Homepage buttons
 #hostSignupButton {
