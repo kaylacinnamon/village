@@ -47,6 +47,9 @@ function submitHost() {
 	if (document.getElementById('shower').checked) {
 		services.push('shower');
 	}
+	if (document.getElementById('shelter').checked) {
+		services.push('shelter');
+	}
 	if (document.getElementById('heat').checked) {
 		services.push('heat');
 	}

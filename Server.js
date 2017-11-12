@@ -98,6 +98,11 @@ app.post('/host-list', function(req, res) {
 	});
 });
 
+app.post('/index', function(req, res) {
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+		res.send(data);
+	});
+});
 
 // http.createServer(function(req, res) {
 // 	var path = url.parse(req.url).pathname;
