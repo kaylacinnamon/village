@@ -22,9 +22,11 @@ function populateList(data) {
 				servicesString += obj.services[j];
 				document.getElementById('host-list').innerHTML += `
 				<li class="list-group-item">
-				  <div class="card-block profile_item">
-				  	<img src="` + obj.image + `" class="img-circle" alt="` + obj.name + `">
-				    <h4 class="card-title">` + obj.name + `</h4>
+				<div class="profile_item row">
+		  	<div class="col-xs-4"><img src="` + obj.image + `" class="img-circle" alt="` + obj.name + `"></div>
+		    
+
+		    <div class="col-xs-8"><h4 class="card-title">` + obj.name + `</h4>
 				 	<p class="card-text">` + servicesString + `
 				    </p>
 				    <button type="button" class="btn btn-success" 
@@ -43,9 +45,11 @@ function populateList(data) {
 				servicesString += obj.services[j];
 				document.getElementById('host-list').innerHTML += `
 				<li class="list-group-item">
-				  <div class="card-block profile_item">
-				  	<img src="` + obj.image + `" class="img-circle" alt="` + obj.name + `">
-				    <h4 class="card-title">` + obj.name + `</h4>
+				<div class="profile_item row">
+		  	<div class="col-xs-4"><img src="` + obj.image + `" class="img-circle" alt="` + obj.name + `"></div>
+		    
+
+		    <div class="col-xs-8"><h4 class="card-title">` + obj.name + `</h4>
 				 	<p class="card-text">` + servicesString + `
 				    </p>
 				    <button type="button" class="btn btn-success" 
@@ -56,23 +60,7 @@ function populateList(data) {
 			`;
 			}
 		}
-		servicesString += obj.services[j];
-		document.getElementById('host-list').innerHTML += `
-		<li class="list-group-item">
-		  <div class="profile_item row">
-		  	<div class="col-xs-4"><img src="` + obj.image + `" class="img-circle" alt="` + obj.name + `"></div>
-		    
 
-		    <div class="col-xs-8"><h4 class="card-title">` + obj.name + `</h4>
-		 	<p class="card-text">` + servicesString + `
-		    </p>
-		    <button type="button" class="btn btn-success" 
-		    	onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=` + obj.email + `&su=Village Request',
-		    	 '_blank', 'toolbar=yes, scrollbars=yes, resizable=yes, width=700, height=500');">Request</button>
-		  </div>
-		</li>
-	`;
+		
 	}
-}
-
 }
