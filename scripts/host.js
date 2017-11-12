@@ -240,4 +240,5 @@ function editHost(data) {
 			contentType: 'application/json'
 		});
 	}
+	location.href = 'host-list.html';
 }

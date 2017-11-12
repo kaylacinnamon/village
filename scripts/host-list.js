@@ -143,7 +143,7 @@ function sortPop() {
 	      switch place with the current item: */
 	      var len = b[i].getElementsByTagName('BUTTON').length;
 	      var len1 = b[i+1].getElementsByTagName('BUTTON').length;
-	      if (Number(b[i].getElementsByTagName('BUTTON')[len-2].getElementsByTagName('span')[0].innerHTML) < Number(b[i+1].getElementsByTagName('BUTTON')[len1-2].getElementsByTagName('span')[0].innerHTML)) {
+	      if (Number(b[i].getElementsByTagName('BUTTON')[1].getElementsByTagName('span')[0].innerHTML) < Number(b[i+1].getElementsByTagName('BUTTON')[1].getElementsByTagName('span')[0].innerHTML)) {
 	        /* If next item is alphabetically lower than current item,
 	        mark as a switch and break the loop: */
 	        shouldSwitch= true;
