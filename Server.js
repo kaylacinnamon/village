@@ -49,8 +49,22 @@ app.use(express.static(__dirname + '/views'));
 // 	res.sendFile(path + '404.html');
 // });
 
-var name;
 app.post('/host', function(req, res) {
+	// res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+	// res.setHeader('Access-Control-Allow-Methods', 'GET');
+	// name = req.body.name;
+	// res.send(name);
+	var obj = {};
+	console.log('body: ' + JSON.stringify(req.body));
+	res.send(req.body);
+	fs.writeFile('data/users.json', JSON.stringify(req.body), function(err) {
+		if (err) {
+			return console.log(err);
+		}
+	});
+});
+
+app.post('/client', function(req, res) {
 	// res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 	// res.setHeader('Access-Control-Allow-Methods', 'GET');
 	// name = req.body.name;

@@ -22,16 +22,11 @@ function insertProfileInfo(name, picture) {
 	document.getElementById('name').innerHTML = name;
 }
 
-function submitHost() {
-	var host =  new Object();
-	host.type = "host";
-	host.id = gapi.auth2.getAuthInstance().currentUser.Ab.El;
-	host.name = document.getElementById('name').innerHTML;
-	host.address = document.getElementById('address').value;
-	host.city = document.getElementById('city').value;
-	host.state = document.getElementById('state').value;
-	host.zip = document.getElementById('zip').value;
-	host.phone = document.getElementById('phone').value;
+function submitClient() {
+	var client =  new Object();
+	client.type = "client";
+	client.id = gapi.auth2.getAuthInstance().currentUser.Ab.El;
+	client.name = document.getElementById('name').innerHTML;
 	var services = [];
 
 	if (document.getElementById('water').checked) {
@@ -56,13 +51,13 @@ function submitHost() {
 		services.push('laundry');
 	}
 
-	host.services = services;
+	client.services = services;
 
 	$.ajax({
 		type: "post",
-		url: "http://localhost:3000/host",
+		url: "http://localhost:3000/client",
 		dataType: 'json',
-			data: JSON.stringify(host),
+			data: JSON.stringify(client),
 			contentType: 'application/json',
 			success: function(data) {
 			}
