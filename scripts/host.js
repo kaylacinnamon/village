@@ -5,7 +5,7 @@ function onSignIn(googleUser) {
 	console.log('Image URL: ' + profile.getImageUrl());
 	console.log('Email: ' + profile.getEmail());
 
-	insertProfileInfo(profile.getGivenName(), profile.getImageUrl());
+	insertProfileInfo(profile.getGivenName(), profile.getImageUrl(), profile.getEmail());
 }
 
 function signOut() {
@@ -16,10 +16,11 @@ function signOut() {
 	});
 }
 
-function insertProfileInfo(name, picture) {
+function insertProfileInfo(name, picture, email) {
 	document.getElementById('profileImage').innerHTML = 
 		'<img src="' + picture + '" class="img-circle" id="profilePic" alt="' + name + '">'
 	document.getElementById('name').innerHTML = name;
+	document.getElementById('email').innerHTML = email;
 }
 
 function submitHost() {
@@ -27,6 +28,7 @@ function submitHost() {
 	host.type = "host";
 	host.id = gapi.auth2.getAuthInstance().currentUser.Ab.El;
 	host.name = document.getElementById('name').innerHTML;
+	host.email = document.getElementById('email').innerHTML;
 	host.image = $('#profilePic').attr('src');
 	host.address = document.getElementById('address').value;
 	host.city = document.getElementById('city').value;
