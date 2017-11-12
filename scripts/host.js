@@ -77,7 +77,7 @@ function existingHost(data) {
 	var myArray = JSON.parse(data);
 	for (var i = 0; i < myArray.length; ++i) {
 		var obj = JSON.parse(myArray[i]);
-		if (obj.id == myId) {
+		if (obj.id == myId && obj.type == 'host') {
 			document.getElementById('address').value = obj.address;
 			document.getElementById('city').value = obj.city;
 			document.getElementById('state').value = obj.state;
@@ -133,7 +133,7 @@ function editHost(data) {
 	var found = false;
 	for (var i = 0; i < myArray.length; ++i) {
 		var obj = JSON.parse(myArray[i]);
-		if (obj.id == myId) {
+		if (obj.id == myId && obj.type == 'host') {
 			found = true;
 			host.id = obj.id;
 			host.address = document.getElementById('address').value;
