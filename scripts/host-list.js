@@ -17,13 +17,16 @@ function populateList(data) {
 		<div class="card">
 		  <div class="card-block">
 		  	<img src="` + obj.image + `" class="img-circle" alt="` + obj.name + `">
-		    <h4 class="card-title">` + obj.name + `</h4>
-		    <p class="card-text">`;
-		console.log(obj.services);
+		    <h4 class="card-title">` + obj.name + `</h4>`;
+		    // <p class="card-text">`;
+		// console.log(obj.services);
+		var servicesString = '';
 		 for (var j = 0; j < obj.services.length - 1; ++j) {
-		 	document.getElementById('host-list').innerHTML += obj.services[j] + ', ';
+		 	servicesString += obj.services[j] + ', ';
 		 }
-		 document.getElementById('host-list').innerHTML += obj.services[j] + `
+		 servicesString += obj.services[j];
+		 document.getElementById('host-list').innerHTML += `
+		 	<p class="card-text">` + servicesString + `
 		    </p>
 		    <button type="button" class="btn btn-success" onclick="request()">Request</button>
 		  </div>
