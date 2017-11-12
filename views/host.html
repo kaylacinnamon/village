@@ -4,32 +4,24 @@
 <head>
     <meta name="google-signin-client_id" content="426195066276-70erj6u039a42qq9lq3ec087jtiagve2.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-
     <script src="host.js"></script>
 </head>
 
 <body>
-
-	<div class="container-fluid">
-		<div class="row header">
-        <center>
-            <a href="index.html"><h1>Village</h1></span></a>
-            <a href="index.html"><img src="img/villageLogo.png"></a>
-        </center>
+    <div class="container-fluid">
+        <div class="row header">
+            <center>
+                <a href="index.html"><h1>Village</h1></span></a>
+                <a href="index.html"><img src="img/villageLogo.png"></a>
+            </center>
+        </div>
     </div>
-
-	</div>
-    
-
     <div class="container">
-
-
         <!-- User profile info -->
         <div class="row">
             <div class="col-xs-12 center-block">
@@ -38,18 +30,18 @@
                     <h1 id="name"></h1>
                     <p id="email"></p>
                     <div id="signIn" class="g-signin2" data-onsuccess="onSignIn"></div>
+                    
+                    <!-- Ratings -->
+                    <a href="#" class="btn btn-success disabled" role="button" aria-disabled="true">
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="btn btn-danger disabled" role="button" aria-disabled="true">
+                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                    </a>
                     <a href="#" id="signOut" onclick="signOut();">Sign out</a>
-                    <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-
-
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
                 </center>
             </div>
         </div>
-
-
         <!-- Address -->
         <div class="row" id="addressform">
             <div class="form-group col-xs-12">
@@ -66,7 +58,6 @@
                 <input type="text" class="form-control" id="zip" placeholder="Zip Code">
             </div>
         </div>
-
         <!-- Phone Number -->
         <div class="row" id="phoneForm">
             <div class="form-group col-xs-12">
@@ -74,7 +65,6 @@
                 <input id="phone" type="text" class="form-control" placeholder="(888) 888 8888">
             </div>
         </div>
-
         <!-- Square Cash -->
         <div class="row" id="squareCashForm">
             <div class="form-group col-xs-12">
@@ -82,8 +72,6 @@
                 <input id="squarecash" type="text" class="form-control" placeholder="https://cash.me/$jack">
             </div>
         </div>
-
-
         <!-- Services offered -->
         <div class="row" id="hostForm">
             <h3>Services offered</h3>
@@ -127,13 +115,10 @@
                     <input id="laundry" class="form-check-input" type="checkbox" value="laundry"> Laundry
                 </label>
             </div>
-            
         </div>
-
-       <!--  Submit button -->
+        <!--  Submit button -->
         <div class="row" id="submitButton">
-        	
-        	<button type="button" class="btn btn-success btn-block btn-large" onclick="submitHost()">Save</button>
+            <button type="button" class="btn btn-success btn-block btn-large" onclick="submitHost()">Save</button>
         </div>
     </div>
 </body>
