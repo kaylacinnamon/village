@@ -3,6 +3,8 @@ var app = express();
 var router = express.Router();
 var path = __dirname + '/views/';
 var bodyParser = require('body-parser');
+var http = require('http');
+var url = require('url');
 
 var fs = require("fs");
 
@@ -43,6 +45,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/scripts'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/data'));
 
 
 // app.use('*', function(req, res) {
@@ -50,64 +53,75 @@ app.use(express.static(__dirname + '/views'));
 // });
 
 app.post('/host', function(req, res) {
-	// res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-	// res.setHeader('Access-Control-Allow-Methods', 'GET');
-	// name = req.body.name;
-	// res.send(name);
 	var obj = {};
 	console.log('body: ' + JSON.stringify(req.body));
 	res.send(req.body);
-	fs.writeFile('data/users.json', JSON.stringify(req.body), function(err) {
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
 		if (err) {
-			return console.log(err);
+			console.log(err);
+		}
+		else {
+			var json = JSON.parse(data);
+			json.push(JSON.stringify(req.body));
+			fs.writeFile('data/users.json', JSON.stringify(json), function(err) {
+				if (err) {
+					return console.log(err);
+				}
+			});
 		}
 	});
 });
 
 app.post('/client', function(req, res) {
-	// res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-	// res.setHeader('Access-Control-Allow-Methods', 'GET');
-	// name = req.body.name;
-	// res.send(name);
 	var obj = {};
 	console.log('body: ' + JSON.stringify(req.body));
 	res.send(req.body);
-	fs.writeFile('data/users.json', JSON.stringify(req.body), function(err) {
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
 		if (err) {
-			return console.log(err);
+			console.log(err);
+		}
+		else {
+			var json = JSON.parse(data);
+			json.push(JSON.stringify(req.body));
+			fs.writeFile('data/users.json', JSON.stringify(json), function(err) {
+				if (err) {
+					return console.log(err);
+				}
+			});
 		}
 	});
 });
 
+app.post('/host-list', function(req, res) {
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+		res.send(data);
+	});
+});
+
+
+// http.createServer(function(req, res) {
+// 	var path = url.parse(req.url).pathname;
+// 	if (path == '/host') {
+// 		console.log("request received");
+// 		var string = 'yaaaaassssss';
+// 		res.writeHead(200, {"Content-Type": "text/plain"});
+// 		res.end(string);
+// 		console.log('string sent');
+// 	}
+// 	// else {
+// 	// 	fs.readFile('views/host-list.html', 'utf8', function(err, file) {
+// 	// 		if (err) {
+// 	// 			console.log(err);
+// 	// 			return;
+// 	// 		}
+// 	// 		else {
+// 	// 			res.writeHead(200, {"Content-Type": "text/html"});
+// 	// 			res.end(file, "utf-8");	
+// 	// 		}
+// 	// 	});
+// 	// }
+// }).listen(3000);
+
 app.listen(3000, function() {
 	console.log('Live at port 3000');
 });
-
-// function writeFile(file) {
-// 	console.log(file);
-// 	var user =  new Object();
-// 	user.type = "host";
-// 	user.name = "Candice Poon",
-// 	user.address = "2150 14th Street, Troy, NY 12180";
-// 	user.services = ["water", "food", "electricity"];
-// 	user.rating = [20, 8];
-// 	user = JSON.stringify(user);
-// 	if (file !== '') {
-// 		file = file.concat(',');
-// 	}
-// 	file = file.concat(user);
-// 	fs.writeFile('data/users.json', file, function(err) {
-// 		if (err) {
-// 			return console.log(err);
-// 		}
-// 	});
-// }
-
-// fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
-// 	if (err) {
-// 		console.log(err);
-// 	}
-// 	else {
-// 		writeFile(data);
-// 	}
-// });

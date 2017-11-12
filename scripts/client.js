@@ -18,7 +18,7 @@ function signOut() {
 
 function insertProfileInfo(name, picture) {
 	document.getElementById('profileImage').innerHTML = 
-		'<img src="' + picture + '" class="img-circle" alt="' + name + '">'
+		'<img src="' + picture + '" class="img-circle" id="profilePic" alt="' + name + '">'
 	document.getElementById('name').innerHTML = name;
 }
 
@@ -27,6 +27,7 @@ function submitClient() {
 	client.type = "client";
 	client.id = gapi.auth2.getAuthInstance().currentUser.Ab.El;
 	client.name = document.getElementById('name').innerHTML;
+	client.image = $('#profilePic').attr('src');
 	var services = [];
 
 	if (document.getElementById('water').checked) {
@@ -57,9 +58,9 @@ function submitClient() {
 		type: "post",
 		url: "http://localhost:3000/client",
 		dataType: 'json',
-			data: JSON.stringify(client),
-			contentType: 'application/json',
-			success: function(data) {
-			}
+		data: JSON.stringify(client),
+		contentType: 'application/json'
 	});
+
+	location.href = 'host-list.html';
 }

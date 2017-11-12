@@ -18,7 +18,7 @@ function signOut() {
 
 function insertProfileInfo(name, picture) {
 	document.getElementById('profileImage').innerHTML = 
-		'<img src="' + picture + '" class="img-circle" alt="' + name + '">'
+		'<img src="' + picture + '" class="img-circle" id="profilePic" alt="' + name + '">'
 	document.getElementById('name').innerHTML = name;
 }
 
@@ -27,6 +27,7 @@ function submitHost() {
 	host.type = "host";
 	host.id = gapi.auth2.getAuthInstance().currentUser.Ab.El;
 	host.name = document.getElementById('name').innerHTML;
+	host.image = $('#profilePic').attr('src');
 	host.address = document.getElementById('address').value;
 	host.city = document.getElementById('city').value;
 	host.state = document.getElementById('state').value;
@@ -62,9 +63,7 @@ function submitHost() {
 		type: "post",
 		url: "http://localhost:3000/host",
 		dataType: 'json',
-			data: JSON.stringify(host),
-			contentType: 'application/json',
-			success: function(data) {
-			}
+		data: JSON.stringify(host),
+		contentType: 'application/json'
 	});
 }
