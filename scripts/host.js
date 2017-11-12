@@ -78,6 +78,9 @@ function existingHost(data) {
 	for (var i = 0; i < myArray.length; ++i) {
 		var obj = JSON.parse(myArray[i]);
 		if (obj.id == myId && obj.type == 'host') {
+			console.log(obj.rating[0]);
+			document.getElementById('thumbsUp').innerHTML = ' ' + obj.rating[0];
+			document.getElementById('thumbsDown').innerHTML = ' ' + obj.rating[1];
 			document.getElementById('address').value = obj.address;
 			document.getElementById('city').value = obj.city;
 			document.getElementById('state').value = obj.state;
