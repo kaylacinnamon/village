@@ -29,21 +29,31 @@ function populateList(data) {
 		    <div class="col-xs-8 "><h4 class="card-title">` + obj.name + `</h4>
 				 	<p class="card-text">` + servicesString + `
 				    </p>
+				    <div>
+
+
 				    <button type="button" class="btn btn-info" 
 				    	onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=` + obj.email + `&su=Village Request',
 				    	 '_blank', 'toolbar=yes, scrollbars=yes, resizable=yes, width=700, height=500');">Request</button>
-					<button type="button" class="btn btn-success" 
-				    	onclick="window.open('` + obj.squareCash + `', '_blank', 'toolbar=yes, scrollbars=yes, resizable=yes, width=700, height=500');">$</button>
-
-
-				    	<button onclick="increaseTU(` + obj.id + `)" type="button" class="btn btn-success" role="button" aria-disabled="true">
+				   	<button onclick="increaseTU(` + obj.id + `)" type="button" class="btn btn-success" role="button" aria-disabled="true">
                         <span class="glyphicon glyphicon-thumbs-up" id="thumbsUp"> ` + obj.rating[0] + `</span>
                     	</button>
 
                    		 <button onclick="increaseTD(` + obj.id + `)" type="button" class="btn btn-danger" role="button" aria-disabled="true">
                         <span class="glyphicon glyphicon-thumbs-down" id="thumbsDown"> ` + obj.rating[1] + `</span>
                     	</button>
+					<button type="button" class="btn btn-success" 
+				    	onclick="window.open('` + obj.squareCash + `', '_blank', 'toolbar=yes, scrollbars=yes, resizable=yes, width=700, height=500');">$</button>
+
+				    </div>
+
+				    
+
+
 				  </div>
+
+				
+                    
 				</li>
 			`;
 			} else {
@@ -160,6 +170,8 @@ function increaseTU(id) {
 			thumbsUpHost(data.responseText, this.id);
 		}
 	});
+
+	location.reload();
 }
 
 function thumbsUpHost(data, id) {
@@ -195,6 +207,8 @@ function increaseTD(id) {
 			thumbsDownHost(data.responseText, this.id);
 		}
 	});
+
+	location.reload();
 }
 
 function thumbsDownHost(data, id) {

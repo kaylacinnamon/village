@@ -15,79 +15,84 @@ body li p {
   margin-bottom: 0px;
 }
 
-/* line 28, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 24, /Users/candicepoon/Documents/village/public/sass/style.scss */
+.card-text {
+  font-size: 14px;
+}
+
+/* line 32, /Users/candicepoon/Documents/village/public/sass/style.scss */
 #hostSignupButton {
   line-height: 75px;
   width: 100%;
 }
 
-/* line 33, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 37, /Users/candicepoon/Documents/village/public/sass/style.scss */
 #needSignupButton {
   line-height: 75px;
   width: 100%;
 }
 
-/* line 38, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 42, /Users/candicepoon/Documents/village/public/sass/style.scss */
 .header {
   background-color: #9763C8;
   height: 120px;
   margin-bottom: 20px;
 }
 
-/* line 43, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 47, /Users/candicepoon/Documents/village/public/sass/style.scss */
 .header h1 {
   color: white;
   font-family: Dosis;
 }
 
-/* line 48, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 52, /Users/candicepoon/Documents/village/public/sass/style.scss */
 .header #villageIcon {
   color: white;
 }
 
-/* line 52, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 56, /Users/candicepoon/Documents/village/public/sass/style.scss */
 .header img {
   height: 35px;
 }
 
-/* line 56, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 60, /Users/candicepoon/Documents/village/public/sass/style.scss */
 .header a {
   text-decoration: none !important;
 }
 
-/* line 61, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 65, /Users/candicepoon/Documents/village/public/sass/style.scss */
 .upvote {
   background-color: green;
 }
 
-/* line 65, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 69, /Users/candicepoon/Documents/village/public/sass/style.scss */
 .downvote {
   background-color: red;
 }
 
-/* line 69, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 73, /Users/candicepoon/Documents/village/public/sass/style.scss */
 .homPageTitles {
   margin-left: 5px;
 }
 
-/* line 74, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 78, /Users/candicepoon/Documents/village/public/sass/style.scss */
 #profileImage img {
   width: 200px;
   height: 200px;
 }
 
-/* line 80, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 84, /Users/candicepoon/Documents/village/public/sass/style.scss */
 #hostForm .form-check-label {
   font-size: 25px;
   font-weight: 400;
 }
 
-/* line 86, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 90, /Users/candicepoon/Documents/village/public/sass/style.scss */
 #submitButton {
   padding-top: 20px;
 }
 
-/* line 91, /Users/candicepoon/Documents/village/public/sass/style.scss */
+/* line 95, /Users/candicepoon/Documents/village/public/sass/style.scss */
 .profile_item img {
   width: 110px;
   height: 110px;
