@@ -1,3 +1,24 @@
+window.onload = function() {
+	var auth2 = gapi.auth2.getAuthInstance();
+	if (auth2.isSignedIn.get()) {
+		console.log('signed in');
+		document.getElementById('signIn').style.display = "none";
+	}
+	else {
+		console.log('signed out');
+		document.getElementById('signIn').style.display = "block";
+		document.getElementById('signOut').style.display = "none";
+		document.getElementById('profileImage').style.display = "none";
+		document.getElementById('name').style.display = "none";
+		document.getElementById('email').style.display = "none";
+		document.getElementById('addressform').style.display = "none";
+		document.getElementById('hostForm').style.display = "none";
+		document.getElementById('phoneForm').style.display = "none";
+		document.getElementById('squareCashForm').style.display = "none";
+		document.getElementById('submitButton').style.display = "none";
+	}
+}
+
 function onSignIn(googleUser) {
 	var profile = googleUser.getBasicProfile();
 	console.log('ID: ' + profile.getId());
@@ -6,6 +27,16 @@ function onSignIn(googleUser) {
 	console.log('Email: ' + profile.getEmail());
 
 	insertProfileInfo(profile.getGivenName(), profile.getImageUrl(), profile.getEmail());
+	document.getElementById('signIn').style.display = "none";
+	document.getElementById('signOut').style.display = "block";
+	document.getElementById('profileImage').style.display = "block";
+	document.getElementById('name').style.display = "block";
+	document.getElementById('email').style.display = "block";
+	document.getElementById('addressform').style.display = "block";
+	document.getElementById('hostForm').style.display = "block";
+	document.getElementById('phoneForm').style.display = "block";
+	document.getElementById('squareCashForm').style.display = "block";
+	document.getElementById('submitButton').style.display = "block";
 }
 
 function signOut() {
@@ -14,6 +45,16 @@ function signOut() {
 	auth2.signOut().then(function() {
 		console.log('User signed out.');
 	});
+	document.getElementById('signIn').style.display = "block";
+	document.getElementById('signOut').style.display = "none";
+	document.getElementById('profileImage').style.display = "none";
+	document.getElementById('name').style.display = "none";
+	document.getElementById('email').style.display = "none";
+	document.getElementById('addressform').style.display = "none";
+	document.getElementById('hostForm').style.display = "none";
+	document.getElementById('phoneForm').style.display = "none";
+	document.getElementById('squareCashForm').style.display = "none";
+	document.getElementById('submitButton').style.display = "none";
 }
 
 function insertProfileInfo(name, picture, email) {

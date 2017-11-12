@@ -25,7 +25,9 @@ function populateList(data) {
 		    <h4 class="card-title">` + obj.name + `</h4>
 		 	<p class="card-text">` + servicesString + `
 		    </p>
-		    <button type="button" class="btn btn-success" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=` + obj.email + `&su=Village Request', '_blank', 'toolbar=yes, scrollbars=yes, resizable=yes, width=700, height=500');">Request</button>
+		    <button type="button" class="btn btn-success" 
+		    	onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=` + obj.email + `&su=Village Request',
+		    	 '_blank', 'toolbar=yes, scrollbars=yes, resizable=yes, width=700, height=500');">Request</button>
 		  </div>
 		</li>
 	`;

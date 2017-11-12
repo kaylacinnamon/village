@@ -36,14 +36,14 @@
                 <center>
                     <div id="profileImage"></div>
                     <h1 id="name"></h1>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                    <a href="#"  onclick="signOut();">Sign out</a>
+                    <div id="signIn" class="g-signin2" data-onsuccess="onSignIn"></div>
+                    <a href="#" id="signOut" onclick="signOut();">Sign out</a>
                 </center>
             </div>
         </div>
 
         <!-- Phone Number -->
-        <div class="row">
+        <div class="row" id="phoneForm">
         	<h2>Phone number</h2>
             <div class="form-group col-xs-12">
                 <input id="phone" type="text" class="form-control" placeholder="Phone Number">
