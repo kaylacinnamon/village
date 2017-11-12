@@ -97,7 +97,6 @@ function sortAlpha() {
 	      shouldSwitch = false;
 	      /* Check if the next item should
 	      switch place with the current item: */
-	      console.log(b[i].getElementsByTagName("H4")[0].innerHTML);
 	      if (b[i].getElementsByTagName("H4")[0].innerHTML.toLowerCase() > b[i+1].getElementsByTagName("H4")[0].innerHTML.toLowerCase()) {
 	        /* If next item is alphabetically lower than current item,
 	        mark as a switch and break the loop: */
