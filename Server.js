@@ -92,6 +92,45 @@ app.post('/client', function(req, res) {
 	});
 });
 
+app.put('/update-host', function(req, res) {
+	var obj = {};
+	console.log('body: ' + JSON.stringify(req.body));
+	res.send(req.body);
+	var json;
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+		json = data;
+		updateHost();
+	});
+	function updateHost() {
+		json = JSON.parse(json);
+		for (var i = 0; i < json.length; ++i) {
+			var jsonObj = JSON.parse(json[i]);
+			if (req.body.id == jsonObj.id) {
+				console.log(req.body.address);
+				jsonObj.address = req.body.address;
+				console.log('\n');
+				console.log(jsonObj.address);
+				jsonObj.city = req.body.city;
+				jsonObj.state = req.body.state;
+				jsonObj.zip = req.body.zip;
+				jsonObj.phone = req.body.phone;
+				jsonObj.squareCash = req.body.squareCash;
+				jsonObj.services = req.body.services;
+				console.log('NEW JSON: ' + json);
+				console.log('JSON OBJ: ' + jsonObj)
+				json[i] = JSON.stringify(jsonObj);
+				fs.writeFile('data/users.json', JSON.stringify(json), function(err) {
+					if (err) {
+						return console.log(err);
+					}
+				});
+				break;
+			}
+		}
+		console.log('NEW JSON: ' + json);
+	}	
+});
+
 app.post('/host-list', function(req, res) {
 	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
 		res.send(data);
@@ -104,28 +143,17 @@ app.post('/index', function(req, res) {
 	});
 });
 
-// http.createServer(function(req, res) {
-// 	var path = url.parse(req.url).pathname;
-// 	if (path == '/host') {
-// 		console.log("request received");
-// 		var string = 'yaaaaassssss';
-// 		res.writeHead(200, {"Content-Type": "text/plain"});
-// 		res.end(string);
-// 		console.log('string sent');
-// 	}
-// 	// else {
-// 	// 	fs.readFile('views/host-list.html', 'utf8', function(err, file) {
-// 	// 		if (err) {
-// 	// 			console.log(err);
-// 	// 			return;
-// 	// 		}
-// 	// 		else {
-// 	// 			res.writeHead(200, {"Content-Type": "text/html"});
-// 	// 			res.end(file, "utf-8");	
-// 	// 		}
-// 	// 	});
-// 	// }
-// }).listen(3000);
+app.post('/existing-host', function(req, res) {
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+		res.send(data);
+	});
+});
+
+app.post('/edit-host', function(req, res) {
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+		res.send(data);
+	});
+});
 
 app.listen(3000, function() {
 	console.log('Live at port 3000');

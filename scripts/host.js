@@ -62,55 +62,171 @@ function insertProfileInfo(name, picture, email) {
 		'<img src="' + picture + '" class="img-circle" id="profilePic" alt="' + name + '">'
 	document.getElementById('name').innerHTML = name;
 	document.getElementById('email').innerHTML = email;
+	$.ajax({
+		type: "post",
+		url: "http://localhost:3000/existing-host",
+		contentType: 'application/json',
+		complete: function(data) {
+			existingHost(data.responseText);
+		}
+	});
+}
+
+function existingHost(data) {
+	var myId = gapi.auth2.getAuthInstance().currentUser.Ab.El;
+	var myArray = JSON.parse(data);
+	for (var i = 0; i < myArray.length; ++i) {
+		var obj = JSON.parse(myArray[i]);
+		if (obj.id == myId) {
+			document.getElementById('address').value = obj.address;
+			document.getElementById('city').value = obj.city;
+			document.getElementById('state').value = obj.state;
+			document.getElementById('zip').value = obj.zip;
+			document.getElementById('phone').value = obj.phone;
+			document.getElementById('squarecash').value = obj.squareCash;
+			for (var j = 0; j < obj.services.length; ++j) {
+				if (obj.services[j] == 'water') {
+					document.getElementById("water").checked = true;
+				}
+				if (obj.services[j] == 'food') {
+					document.getElementById("food").checked = true;
+				}
+				if (obj.services[j] == 'electricity') {
+					document.getElementById("electricity").checked = true;
+				}
+				if (obj.services[j] == 'shower') {
+					document.getElementById("shower").checked = true;
+				}
+				if (obj.services[j] == 'heat') {
+					document.getElementById("heat").checked = true;
+				}
+				if (obj.services[j] == 'wifi') {
+					document.getElementById("wifi").checked = true;
+				}
+				if (obj.services[j] == 'laundry') {
+					document.getElementById("laundry").checked = true;
+				}
+				if (obj.services[j] == 'shelter') {
+					document.getElementById("shelter").checked = true;
+				}
+			}
+			break;
+		}
+	}
 }
 
 function submitHost() {
-	var host =  new Object();
-	host.type = "host";
-	host.id = gapi.auth2.getAuthInstance().currentUser.Ab.El;
-	host.name = document.getElementById('name').innerHTML;
-	host.email = document.getElementById('email').innerHTML;
-	host.image = $('#profilePic').attr('src');
-	host.address = document.getElementById('address').value;
-	host.city = document.getElementById('city').value;
-	host.state = document.getElementById('state').value;
-	host.zip = document.getElementById('zip').value;
-	host.phone = document.getElementById('phone').value;
-	host.squareCash = document.getElementById('squareCash').value;
-	var services = [];
-
-	if (document.getElementById('water').checked) {
-		services.push('water');
-	}
-	if (document.getElementById('food').checked) {
-		services.push('food');
-	}
-	if (document.getElementById('electricity').checked) {
-		services.push('electricity');
-	}
-	if (document.getElementById('shower').checked) {
-		services.push('shower');
-	}
-	if (document.getElementById('shelter').checked) {
-		services.push('shelter');
-	}
-	if (document.getElementById('heat').checked) {
-		services.push('heat');
-	}
-	if (document.getElementById('wifi').checked) {
-		services.push('wifi');
-	}
-	if (document.getElementById('laundry').checked) {
-		services.push('laundry');
-	}
-
-	host.services = services;
-
 	$.ajax({
 		type: "post",
-		url: "http://localhost:3000/host",
-		dataType: 'json',
-		data: JSON.stringify(host),
-		contentType: 'application/json'
+		url: "http://localhost:3000/edit-host",
+		contentType: 'application/json',
+		complete: function(data) {
+			editHost(data.responseText);
+		}
 	});
+}
+
+function editHost(data) {
+	var myId = gapi.auth2.getAuthInstance().currentUser.Ab.El;
+	var myArray = JSON.parse(data);
+	var host =  new Object();
+	var found = false;
+	for (var i = 0; i < myArray.length; ++i) {
+		var obj = JSON.parse(myArray[i]);
+		if (obj.id == myId) {
+			found = true;
+			host.id = obj.id;
+			host.address = document.getElementById('address').value;
+			host.city = document.getElementById('city').value;
+			host.state = document.getElementById('state').value;
+			host.zip = document.getElementById('zip').value;
+			host.phone = document.getElementById('phone').value;
+			host.squareCash = document.getElementById('squarecash').value;
+			var services = [];
+
+			if (document.getElementById('water').checked) {
+				services.push('water');
+			}
+			if (document.getElementById('food').checked) {
+				services.push('food');
+			}
+			if (document.getElementById('electricity').checked) {
+				services.push('electricity');
+			}
+			if (document.getElementById('shower').checked) {
+				services.push('shower');
+			}
+			if (document.getElementById('shelter').checked) {
+				services.push('shelter');
+			}
+			if (document.getElementById('heat').checked) {
+				services.push('heat');
+			}
+			if (document.getElementById('wifi').checked) {
+				services.push('wifi');
+			}
+			if (document.getElementById('laundry').checked) {
+				services.push('laundry');
+			}
+
+			host.services = services;
+			$.ajax({
+				type: "put",
+				url: "http://localhost:3000/update-host",
+				dataType: 'json',
+				data: JSON.stringify(host),
+				contentType: 'application/json'
+			});
+			break;
+		}
+	}
+	if (found == false) {
+		host.type = "host";
+		host.id = gapi.auth2.getAuthInstance().currentUser.Ab.El;
+		host.name = document.getElementById('name').innerHTML;
+		host.email = document.getElementById('email').innerHTML;
+		host.image = $('#profilePic').attr('src');
+		host.address = document.getElementById('address').value;
+		host.city = document.getElementById('city').value;
+		host.state = document.getElementById('state').value;
+		host.zip = document.getElementById('zip').value;
+		host.phone = document.getElementById('phone').value;
+		host.squareCash = document.getElementById('squarecash').value;
+		var services = [];
+
+		if (document.getElementById('water').checked) {
+			services.push('water');
+		}
+		if (document.getElementById('food').checked) {
+			services.push('food');
+		}
+		if (document.getElementById('electricity').checked) {
+			services.push('electricity');
+		}
+		if (document.getElementById('shower').checked) {
+			services.push('shower');
+		}
+		if (document.getElementById('shelter').checked) {
+			services.push('shelter');
+		}
+		if (document.getElementById('heat').checked) {
+			services.push('heat');
+		}
+		if (document.getElementById('wifi').checked) {
+			services.push('wifi');
+		}
+		if (document.getElementById('laundry').checked) {
+			services.push('laundry');
+		}
+
+		host.services = services;
+
+		$.ajax({
+			type: "post",
+			url: "http://localhost:3000/host",
+			dataType: 'json',
+			data: JSON.stringify(host),
+			contentType: 'application/json'
+		});
+	}
 }
