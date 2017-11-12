@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var path = __dirname + '/views/';
+var bodyParser = require('body-parser');
 
 var fs = require("fs");
 
@@ -14,8 +15,8 @@ router.get('/', function(req, res) {
 	res.sendFile(path + 'index.html');
 });
 
-// router.get('/event.html', function(req, res) {
-// 	res.sendFile(path + 'event.html');
+// router.get('/host', function(req, res) {
+// 	res.sendFile(path + 'host.html');
 // });
 
 // router.get('/approval.html', function(req, res){
@@ -35,6 +36,7 @@ router.get('/', function(req, res) {
 // });
 
 app.use('/', router);
+app.use(bodyParser.json());
 
 
 
@@ -47,35 +49,46 @@ app.use(express.static(__dirname + '/views'));
 // 	res.sendFile(path + '404.html');
 // });
 
+var name;
+app.post('/host', function(req, res) {
+	// res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+	// res.setHeader('Access-Control-Allow-Methods', 'GET');
+	// name = req.body.name;
+	// res.send(name);
+	var obj = {};
+	console.log('body: ' + JSON.stringify(req.body));
+	res.send(req.body);
+});
+
 app.listen(3000, function() {
 	console.log('Live at port 3000');
 });
 
+// function writeFile(file) {
+// 	console.log(file);
+// 	var user =  new Object();
+// 	user.type = "host";
+// 	user.name = "Candice Poon",
+// 	user.address = "2150 14th Street, Troy, NY 12180";
+// 	user.services = ["water", "food", "electricity"];
+// 	user.rating = [20, 8];
+// 	user = JSON.stringify(user);
+// 	if (file !== '') {
+// 		file = file.concat(',');
+// 	}
+// 	file = file.concat(user);
+// 	fs.writeFile('data/users.json', file, function(err) {
+// 		if (err) {
+// 			return console.log(err);
+// 		}
+// 	});
+// }
 
-function writeFile(file) {
-	var user =  new Object();
-	user.type = "host";
-	user.name = "Candice Poon",
-	user.address = "2150 14th Street, Troy, NY 12180";
-	user.services = ["water", "food", "electricity"];
-	user.rating = [20, 8];
-	user = JSON.stringify(user);
-	if (file !== '') {
-		file = file.concat(',');
-	}
-	file = file.concat(user);
-	fs.writeFile('data/users.json', file, function(err) {
-		if (err) {
-			return console.log(err);
-		}
-	});
-}
-
-fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
-	if (err) {
-		console.log(err);
-	}
-	else {
-		writeFile(data);
-	}
-});
+// fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+// 	if (err) {
+// 		console.log(err);
+// 	}
+// 	else {
+// 		writeFile(data);
+// 	}
+// });

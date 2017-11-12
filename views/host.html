@@ -19,6 +19,8 @@
                 <a href="#" onclick="signOut();">Sign out</a>
             </div>
         </div>
+
+
         <!-- User profile info -->
         <div class="row">
             <div class="col-xs-12 center-block">
@@ -28,48 +30,65 @@
                 </center>
             </div>
         </div>
+
+
+        <!-- Address -->
+        <div class="row" id="addressform">
+        	<h2>Address:</h2>
+            <div class="form-group col-xs-12">
+                <input type="text" class="form-control" id="address" placeholder="Address">
+            </div>
+            <div class="form-group col-xs-12">
+                <input type="text" class="form-control" id="city" placeholder="City">
+            </div>
+            <div class="form-group col-xs-6">
+                <input type="text" class="form-control" id="state" placeholder="State">
+            </div>
+            <div class="form-group col-xs-6">
+                <input type="text" class="form-control" id="zip" placeholder="Zip Code">
+            </div>
+        </div>
+
+
+        <!-- Services offered -->
         <div class="row" id="hostForm">
-        		<h2>Services offered:</h2>
-           
-                <div class="form-check col-xs-4">
-                    <label class="form-check-label">
-                        <input id="water" class="form-check-input" type="checkbox" value="water"> Water
-                    </label>
-                </div>
-                <div class="form-check col-xs-4">
-                    <label class="form-check-label">
-                        <input id="food" class="form-check-input" type="checkbox" value="food"> Food
-                    </label>
-                </div>
-                <div class="form-check col-xs-4">
-                    <label class="form-check-label">
-                        <input id="electricity" class="form-check-input" type="checkbox" value="electricity"> Electricity
-                    </label>
-                </div>
-                <div class="form-check col-xs-4">
-                    <label class="form-check-label">
-                        <input id="shower" class="form-check-input" type="checkbox" value="shower"> Shower
-                    </label>
-                </div>
-                <div class="form-check col-xs-4">
-                    <label class="form-check-label">
-                        <input id="heat" class="form-check-input" type="checkbox" value="heat"> Heat
-                    </label>
-                </div>
-                <div class="form-check col-xs-4">
-                    <label class="form-check-label">
-                        <input id="wifi" class="form-check-input" type="checkbox" value="wifi"> Wifi
-                    </label>
-                </div>
-                <div class="form-check col-xs-4">
-                    <label class="form-check-label">
-                        <input id="laundry" class="form-check-input" type="checkbox" value="laundry"> Laundry
-                    </label>
-                </div>
-
-
-                <button type="button" class="btn btn-success btn-block btn-large" onclick="submitHost()">Submit</button>
-            
+            <h2>Services offered:</h2>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="water" class="form-check-input" type="checkbox" value="water"> Water
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="food" class="form-check-input" type="checkbox" value="food"> Food
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="electricity" class="form-check-input" type="checkbox" value="electricity"> Electricity
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="shower" class="form-check-input" type="checkbox" value="shower"> Shower
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="heat" class="form-check-input" type="checkbox" value="heat"> Heat
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="wifi" class="form-check-input" type="checkbox" value="wifi"> Wifi
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="laundry" class="form-check-input" type="checkbox" value="laundry"> Laundry
+                </label>
+            </div>
+            <button type="button" class="btn btn-success btn-block btn-large" onclick="submitHost()">Submit</button>
         </div>
     </div>
 </body>
