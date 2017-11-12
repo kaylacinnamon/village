@@ -19,7 +19,7 @@ function populateList(data) {
 		}
 		servicesString += obj.services[j];
 		document.getElementById('host-list').innerHTML += `
-		<div class="card">
+		<div class="card col-xs-12">
 		  <div class="card-block">
 		  	<img src="` + obj.image + `" class="img-circle" alt="` + obj.name + `">
 		    <h4 class="card-title">` + obj.name + `</h4>

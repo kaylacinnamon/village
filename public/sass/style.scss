@@ -20,7 +20,7 @@ $purple: #9763C8;
 
 .header {
 	background-color: $purple;
-	height: 100px;
+	height: 120px;
 	margin-bottom: 20px;
 
 	h1 {
@@ -30,6 +30,10 @@ $purple: #9763C8;
 
 	#villageIcon {
 		color: white;
+	}
+
+	img {
+		height: 35px;
 	}
 }
 
