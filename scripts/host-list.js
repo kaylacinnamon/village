@@ -23,10 +23,10 @@ function populateList(data) {
 				document.getElementById('host-list').innerHTML += `
 				<li class="list-group-item">
 				<div class="profile_item row">
-		  	<div class="col-xs-4"><img src="` + obj.image + `" class="img-circle" alt="` + obj.name + `"></div>
+		  	<div class="col-xs-4 "><img src="` + obj.image + `" class="img-circle" alt="` + obj.name + `"></div>
 		    
 
-		    <div class="col-xs-8"><h4 class="card-title">` + obj.name + `</h4>
+		    <div class="col-xs-8 "><h4 class="card-title">` + obj.name + `</h4>
 				 	<p class="card-text">` + servicesString + `
 				    </p>
 				    <button type="button" class="btn btn-success" 
@@ -34,6 +34,15 @@ function populateList(data) {
 				    	 '_blank', 'toolbar=yes, scrollbars=yes, resizable=yes, width=700, height=500');">Request</button>
 					<button type="button" class="btn btn-success" 
 				    	onclick="window.open('` + obj.squareCash + `', '_blank', 'toolbar=yes, scrollbars=yes, resizable=yes, width=700, height=500');">$</button>
+
+
+				    	<button type="button" class="btn btn-success" role="button" aria-disabled="true">
+                        <span class="glyphicon glyphicon-thumbs-up" id="thumbsUp"></span>
+                    	</button>
+
+                   		 <button type="button" class="btn btn-danger" role="button" aria-disabled="true">
+                        <span class="glyphicon glyphicon-thumbs-down" id="thumbsDown"></span>
+                    	</button>
 				  </div>
 				</li>
 			`;
@@ -55,6 +64,14 @@ function populateList(data) {
 				    <button type="button" class="btn btn-success" 
 				    	onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=` + obj.email + `&su=Village Request',
 				    	 '_blank', 'toolbar=yes, scrollbars=yes, resizable=yes, width=700, height=500');">Request</button>
+
+				    	 <button type="button" class="btn btn-success" role="button" aria-disabled="true">
+                        <span class="glyphicon glyphicon-thumbs-up" id="thumbsUp"></span>
+                    	</button>
+
+                   		 <button type="button" class="btn btn-danger" role="button" aria-disabled="true">
+                        <span class="glyphicon glyphicon-thumbs-down" id="thumbsDown"></span>
+                    	</button>
 				  </div>
 				</li>
 			`;
