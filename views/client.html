@@ -1,62 +1,104 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta name="google-signin-client_id" content="426195066276-70erj6u039a42qq9lq3ec087jtiagve2.apps.googleusercontent.com">
-		
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<script src="client.js"></script>
-	</head>
-	<body>
-		<div class="g-signin2" data-onsuccess="onSignIn"></div>
-		<a href="#" onclick="signOut();">Sign out</a>
-		<div id="profileImage"></div>
-		<h1 id="name"></h1>
-		<div class="form-check">
-			<label class="form-check-label">
-				<input id="water" class="form-check-input" type="checkbox" value="water">
-				Water
-			</label>
-		</div>
-		<div class="form-check">
-			<label class="form-check-label">
-				<input id="food" class="form-check-input" type="checkbox" value="food">
-				Food
-			</label>
-		</div>
-		<div class="form-check">
-			<label class="form-check-label">
-				<input id="electricity" class="form-check-input" type="checkbox" value="electricity">
-				Electricity
-			</label>
-		</div>
-		<div class="form-check">
-			<label class="form-check-label">
-				<input id="shower" class="form-check-input" type="checkbox" value="shower">
-				Shower
-			</label>
-		</div>
-		<div class="form-check">
-			<label class="form-check-label">
-				<input id="heat" class="form-check-input" type="checkbox" value="heat">
-				Heat
-			</label>
-		</div>
-		<div class="form-check">
-			<label class="form-check-label">
-				<input id="wifi" class="form-check-input" type="checkbox" value="wifi">
-				Wifi
-			</label>
-		</div>
-		<div class="form-check">
-			<label class="form-check-label">
-				<input id="laundry" class="form-check-input" type="checkbox" value="laundry">
-				Laundry
-			</label>
-		</div>
-		<button type="button" class="btn btn-success" onclick="submitClient()">Submit</button>
-	</body>
+
+<head>
+    <meta name="google-signin-client_id" content="426195066276-70erj6u039a42qq9lq3ec087jtiagve2.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <script src="host.js"></script>
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="row header" >
+			<center>
+				
+				<a href="index.html"><h1>Village</h1></span></a>
+				<a href="index.html"><span class="glyphicon glyphicon-menu-down" aria-hidden="true" id="villageIcon"></span></a>
+			</center>
+
+		</div>	
+
+	</div>
+    
+
+    <div class="container">
+
+
+        <!-- User profile info -->
+        <div class="row">
+            <div class="col-xs-12 center-block">
+                <center>
+                    <div id="profileImage"></div>
+                    <h1 id="name"></h1>
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    <a href="#"  onclick="signOut();">Sign out</a>
+                </center>
+            </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="row">
+        	<h2>Phone number</h2>
+            <div class="form-group col-xs-12">
+                <input id="phone" type="text" class="form-control" placeholder="Phone Number">
+            </div>
+        </div>
+
+        <!-- Services offered -->
+        <div class="row" id="hostForm">
+            <h2>Services needed</h2>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="water" class="form-check-input" type="checkbox" value="water"> Water
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="food" class="form-check-input" type="checkbox" value="food"> Food
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="electricity" class="form-check-input" type="checkbox" value="electricity"> Electricity
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="shower" class="form-check-input" type="checkbox" value="shower"> Shower
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="heat" class="form-check-input" type="checkbox" value="heat"> Heat
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="wifi" class="form-check-input" type="checkbox" value="wifi"> Wifi
+                </label>
+            </div>
+            <div class="form-check col-xs-6">
+                <label class="form-check-label">
+                    <input id="laundry" class="form-check-input" type="checkbox" value="laundry"> Laundry
+                </label>
+            </div>
+            
+        </div>
+
+       <!--  Submit button -->
+        <div class="row" id="submitButton">
+        	
+        	<button type="button" class="btn btn-success btn-block btn-large" onclick="submitClient()">Submit</button>
+        </div>
+    </div>
+</body>
+
 </html>
