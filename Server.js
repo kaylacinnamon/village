@@ -96,15 +96,19 @@ app.put('/update-host', function(req, res) {
 	var obj = {};
 	res.send(req.body);
 	var json;
+	// console.log('here');
 	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
 		json = data;
 		updateHost();
 	});
 	function updateHost() {
+		console.log(req.body);
 		json = JSON.parse(json);
+		console.log(json);
 		for (var i = 0; i < json.length; ++i) {
 			var jsonObj = JSON.parse(json[i]);
 			if (req.body.id == jsonObj.id && req.body.type == 'host') {
+				console.log(req.body.rating);
 				jsonObj.address = req.body.address;
 				jsonObj.city = req.body.city;
 				jsonObj.state = req.body.state;
@@ -114,6 +118,8 @@ app.put('/update-host', function(req, res) {
 				jsonObj.rating = req.body.rating;
 				jsonObj.services = req.body.services;
 				json[i] = JSON.stringify(jsonObj);
+				console.log("\nPOSTING JSON: ");
+				console.log(json);
 				fs.writeFile('data/users.json', JSON.stringify(json), function(err) {
 					if (err) {
 						return console.log(err);
@@ -253,6 +259,12 @@ app.post('/thumbs-up-host', function(req, res) {
 });
 
 app.post('/thumbs-down-host', function(req, res) {
+	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
+		res.send(data);
+	});
+});
+
+app.post('/map-markers', function(req, res) {
 	fs.readFile('data/users.json', 'utf8', function readFileCallback(err, data) {
 		res.send(data);
 	});

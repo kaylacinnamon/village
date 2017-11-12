@@ -142,6 +142,9 @@ function editHost(data) {
 		if (obj.id == myId && obj.type == 'host') {
 			found = true;
 			host.id = obj.id;
+			host.type = obj.type;
+			host.rating = obj.rating;
+			console.log(obj.rating);
 			host.address = document.getElementById('address').value;
 			host.city = document.getElementById('city').value;
 			host.state = document.getElementById('state').value;
@@ -176,6 +179,7 @@ function editHost(data) {
 			}
 
 			host.services = services;
+			console.log(host);
 			$.ajax({
 				type: "put",
 				url: "http://localhost:3000/update-host",
@@ -198,6 +202,7 @@ function editHost(data) {
 		host.zip = document.getElementById('zip').value;
 		host.phone = document.getElementById('phone').value;
 		host.squareCash = document.getElementById('squarecash').value;
+		host.rating = [0,0];
 		var services = [];
 
 		if (document.getElementById('water').checked) {
