@@ -33,6 +33,7 @@ function submitHost() {
 	host.state = document.getElementById('state').value;
 	host.zip = document.getElementById('zip').value;
 	host.phone = document.getElementById('phone').value;
+	host.squareCash = document.getElementById('squareCash').value;
 	var services = [];
 
 	if (document.getElementById('water').checked) {
